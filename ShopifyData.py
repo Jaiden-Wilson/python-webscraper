@@ -18,7 +18,7 @@ sites=[]
 shopifySites=[]
 
 
-for h in range(51): 
+for h in range(250): 
     
     time.sleep(1)
 
@@ -31,10 +31,13 @@ for h in range(51):
 for i in range(len(sites)):
     print(sites[i])
 #Check if elements in sites[] are shopify stores   
-#for i in range(len(sites)): 
-    #driver.get('https://www.'+sites[i]+'/admin')
-    #if(len(driver.find_elements(By.LINK_TEXT,'Log in to another store'))>0):
-        #shopifySites.append(sites[i])
-#print(shopifySites)
+for i in range(len(sites)): 
+    try:
+        driver.get('https://www.'+sites[i]+'/admin')
+    except:
+        print('Inaccessible URL')
+    if(len(driver.find_elements(By.LINK_TEXT,'Log in to another store'))>0):
+        shopifySites.append(sites[i])
+print(shopifySites)
      
 
