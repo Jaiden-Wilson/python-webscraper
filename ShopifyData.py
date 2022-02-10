@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 path= r"C:\Users\16479\Downloads\chromedriver_win32\chromedriver.exe"
 s=Service(r'C:\Users\16479\.wdm\drivers\chromedriver\win32\97.0.4692.71\chromedriver.exe')
 options = webdriver.ChromeOptions()
@@ -20,7 +22,7 @@ shopifySites=[]
 
 for h in range(250): 
     
-    time.sleep(1)
+    WebDriverWait(driver,100).until(EC.visibility_of_all_elements_located((By.CLASS_NAME,'text-left')))
 
     for i in range(50):
         sites.append(driver.find_elements(By.CLASS_NAME,'odd')[i].find_element(By.CLASS_NAME,'text-left').text)
