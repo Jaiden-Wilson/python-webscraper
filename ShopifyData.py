@@ -25,7 +25,7 @@ for h in range(250):
     
     WebDriverWait(driver,100).until(EC.visibility_of_all_elements_located((By.CLASS_NAME,'text-left')))
 
-    for i in range(50):
+    for i in range(49):
         sites.append(driver.find_elements(By.CLASS_NAME,'odd')[i].find_element(By.CLASS_NAME,'text-left').text)
         sites.append(driver.find_elements(By.CLASS_NAME,'even')[i].find_element(By.CLASS_NAME,'text-left').text)
     
